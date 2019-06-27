@@ -39,6 +39,7 @@ Here are the steps:
 > **hint:** the .env file is protected by git ignore and a good place to save the api credentials.
 
 Here is an example form:
+
 ![](./media/reddit-api-secret.png)
 
 ## 4. Telegram messaging app + bot API key
@@ -53,6 +54,7 @@ Action steps:
 * Save the API key (hint: in the .env file)
 
 Here's an example conversation to get an API key:
+
 ![](./media/telegram-api-key.jpeg)
 
 ## 5. Docker for containerization and service orchestration
@@ -72,4 +74,5 @@ Installation:
 - If you want to use your NLP model that you built, that's a wonderful idea!
 
 --- 
-> **Thank you for taking the preparation steps. See you at the workshop!**
+> **Thank you for taking the preparation steps. See you at the workshop!**  
+> *Michal Mucha*
