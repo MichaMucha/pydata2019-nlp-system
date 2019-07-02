@@ -1,0 +1,68 @@
+version: "3.1"
+
+services:
+
+  reddit_consumer:
+    container_name: reddit_consumer
+    restart: always
+    build: ./reddit_consumer
+    image: reddit_consumer:latest
+    depends_on:
+      - redis_db
+    networks:
+      - backend
+    environment: 
+      REDIS_URL: redis_db
+    env_file:
+      - ./.env
+    entrypoint: /bin/bash
+    command: -c "reddit_consumer redis comments"
+
+  redis_db:
+    image: redis
+    container_name: redis_db
+    networks:
+      - backend
+    expose: 
+      - 6379
+    ports:
+      - 6379:6379
+
+  message_processor:
+    container_name: 
+    build: 
+    image: 
+    links:
+      - 
+    depends_on: 
+      - 
+    environment: 
+      
+    networks:
+      - 
+    entrypoint: 
+    command: -c "message_processor - serve_spacy_ner"
+
+  telegram_publisher:
+    build: ./telegram_publisher
+    image: telegram_publisher:latest
+    container_name: telegram_publisher
+    links:
+      - redis_db
+    environment: 
+      REDIS_URL: redis_db
+    env_file:
+      - ./telegram_publisher/.telegram
+    depends_on:
+      - redis_db
+    networks:
+      - backend
+    entrypoint: /bin/bash
+    command: -c "python publisher.py publish processed"
+
+networks: 
+  backend:
+
+volumes:
+  shared: 
+  

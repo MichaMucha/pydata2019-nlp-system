@@ -1,0 +1,14 @@
+name: app
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.7
+  - pandas
+  - ujson
+  - uvloop
+  - pip:
+    - aiogram
+    - python-dotenv
+    - tqdm
+    - fire
+    - redis

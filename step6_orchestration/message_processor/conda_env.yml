@@ -1,0 +1,17 @@
+name: app
+channels:
+  - derickl
+  - conda-forge
+dependencies:
+  - python>=3.7
+  - pandas
+  - numpy
+  - ujson
+  - uvloop
+  - pip:
+    - spacy
+    - redis
+    - aiogram
+    - python-dotenv
+    - tqdm
+    - fire

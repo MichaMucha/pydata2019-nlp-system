@@ -1,0 +1,14 @@
+name: app
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.7
+  - pandas
+  - ujson
+  - pip:
+    - praw>=6.1.1
+    - python-dotenv
+    - beautifulsoup4
+    - tqdm
+    - fire
+    - redis

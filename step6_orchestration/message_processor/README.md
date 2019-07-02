@@ -1,0 +1,1 @@
+# Redis pubsub message processor
