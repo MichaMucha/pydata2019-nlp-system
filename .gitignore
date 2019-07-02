@@ -1,3 +1,10 @@
+# WIP 
+.DS_Store
+__M/*
+
+# Telegram API
+.telegram
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
