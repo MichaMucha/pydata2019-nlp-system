@@ -1,12 +1,9 @@
 import re
 import html
 from typing import Collection, Dict
-
 from praw.models import Comment, Submission
 
 __all__ = [
-     'extract_post',
-     'extract_comment',
      'message_to_sentences',
      'replace_urls',
      'spec_add_spaces',
@@ -17,35 +14,6 @@ __all__ = [
      'replace_all_caps',
      'deal_caps'
 ]
-
-def extract_post(post: Submission) -> Dict:
-    sub = post
-    link, is_photo = parse_url(sub.url)
-    return {
-        'author': sub.author.name,
-        'title': sub.title,
-        'flair': sub.link_flair_text,
-        'link': link,
-        'text': sub.selftext,
-        'created_utc': sub.created_utc,
-        'url_is_photo': is_photo,
-        'id': sub.id,
-        'score': sub.score
-    }
-
-def extract_comment(comment: Comment, sub_id=None) -> Dict:
-    c = comment
-    author = c.author.name if c.author != None else ''
-    r = dict(
-        created_utc=c.created_utc,
-        text=c.body,
-        id=c.id,
-        score=c.score,
-        author=author
-    )
-    if sub_id != None:
-        r.update({'parent': sub_id})
-    return r
 
 def message_to_sentences(message:Dict, minimum_characters:int=5) -> str:
     text = message['text']
@@ -58,9 +26,10 @@ def replace_urls(text:str) -> str:
     MARKDOWN_URL_REGEX = (
         r'((\[.+?\]\()?(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)(?:\))?)'
     )
-    return text.replace(
+    return re.sub(
         MARKDOWN_URL_REGEX,
-        __re_sub_urls
+        __re_sub_urls,
+        text
     )
 
 def __re_sub_urls(match):
