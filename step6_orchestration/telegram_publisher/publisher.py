@@ -13,7 +13,7 @@ load_dotenv(find_dotenv('.telegram'))
 uvloop.install()
 
 REDIS_HOST = getenv('REDIS_URL', 'localhost')
-channel_id = getenv('CHANNEL_ID')
+channel_id = getenv('MY_TELEGRAM_NUMBER')
 
 async def push_update(content, bot):
     try:
