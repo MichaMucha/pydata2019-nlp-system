@@ -33,7 +33,10 @@ def replace_urls(text:str) -> str:
     )
 
 def __re_sub_urls(match):
-    url = match.group(2)[1:-2]
+    try:
+        url = match.group(2)[1:-2]
+    except TypeError:
+        return "<URL>"
     if match.group(3)[:-1] == match.group(2)[1:-2].replace('\_', '_'):
         return "<URL>"
     else:
