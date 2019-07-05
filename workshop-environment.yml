@@ -11,8 +11,10 @@ dependencies:
   - jupyterlab
   - ipywidgets
   - nodejs
+  - ujson
   - pip
   - pip:
+    - fire
     - torch>=1.0.0
     - torchvision
     - fastai>=1.0
