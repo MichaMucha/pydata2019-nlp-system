@@ -2,6 +2,7 @@ from time import sleep
 from os import getenv
 
 from reddit_consumer.reddit import get_subreddit, extract_comment, extract_post
+from reddit_consumer.preprocessing import message_to_sentences, replace_urls
 from tqdm import tqdm
 from praw.exceptions import APIException, ClientException
 import fire
@@ -35,7 +36,10 @@ class StreamConsumer:
             f = extract_comment if stream == 'comments' else extract_post
             for c in tqdm(s()):
                 msg = f(c)
-                r.publish(stream, ujson.dumps(msg))
+                text = replace_urls(msg['text'])
+                sentences = message_to_sentences(text)
+                for s in sentences:
+                    r.publish(stream, ujson.dumps(s))
 
                 author = msg['author']
                 key = f'{stream}:{author}'

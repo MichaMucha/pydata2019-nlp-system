@@ -31,7 +31,7 @@ async def listen(source):
         yield message['data']
 
 
-async def subscribe_and_listen(bot, channel_name='ready'):
+async def subscribe_and_listen(bot, channel_name='processed'):
     async for message in listen(channel_name):
         await push_update(message, bot)
 
@@ -39,7 +39,7 @@ def main():
     fire.Fire(TelegramPublisher)
 
 class TelegramPublisher:
-    def publish(self, channel_name='ready'):
+    def publish(self, channel_name='processed'):
         signal(SIGINT, interrupt_handler)
         try:
             loop = uvloop.new_event_loop()

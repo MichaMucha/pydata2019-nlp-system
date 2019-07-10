@@ -19,7 +19,7 @@ services:
     command: -c "reddit_consumer redis comments"
 
   redis_db:
-    image: redis
+    image: redis:alpine
     container_name: redis_db
     networks:
       - backend
@@ -41,7 +41,7 @@ services:
     networks:
       - 
     entrypoint: 
-    command: -c "message_processor - serve_spacy_ner"
+    command: -c "message_processor - serve_ner_sent"
 
   telegram_publisher:
     build: ./telegram_publisher

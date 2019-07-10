@@ -6,6 +6,7 @@ dependencies:
   - pandas
   - ujson
   - uvloop
+  - pip
   - pip:
     - aiogram
     - python-dotenv
