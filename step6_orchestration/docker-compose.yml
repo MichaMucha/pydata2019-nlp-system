@@ -28,20 +28,20 @@ services:
     ports:
       - 6379:6379
 
-  message_processor:
-    container_name: 
-    build: 
-    image: 
-    links:
-      - 
-    depends_on: 
-      - 
-    environment: 
+  # message_processor:
+  #   container_name: 
+  #   build: 
+  #   image: 
+  #   links:
+  #     - 
+  #   depends_on: 
+  #     - 
+  #   environment: 
       
-    networks:
-      - 
-    entrypoint: 
-    command: -c "message_processor - serve_ner_sent"
+  #   networks:
+  #     - 
+  #   entrypoint: 
+  #   command: -c "message_processor - serve_ner_sent"
 
   telegram_publisher:
     build: ./telegram_publisher
