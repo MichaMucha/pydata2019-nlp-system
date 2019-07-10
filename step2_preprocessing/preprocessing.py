@@ -16,7 +16,10 @@ __all__ = [
 ]
 
 def message_to_sentences(message:Dict, minimum_characters:int=5) -> str:
-    text = message['text']
+    try:
+        text = message['text']
+    except TypeError:
+        text = message
     sentences = []
     for line in text.split('\n'):
         sentences += line.split('.')

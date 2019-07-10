@@ -8,8 +8,8 @@ import sys
 import fire
 import uvloop
 import redis
-
-load_dotenv(find_dotenv('.telegram'))
+find_dotenv()
+load_dotenv()
 uvloop.install()
 
 REDIS_HOST = getenv('REDIS_URL', 'localhost')

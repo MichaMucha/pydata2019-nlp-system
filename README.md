@@ -13,6 +13,8 @@ There are basic steps to get the necessary software, and voluntary extra steps i
 
 I will be adding the materials here before the day of the workshop, and that way you can pull the latest version.
 
+> Note: if you are on Windows, I strongly encourage you to use [Git Bash](https://gitforwindows.org), which successfully emulates the basics of the UNIX command line environment on Windows.
+
 ## 2. Anaconda Python + `conda env`
 
 You probably already have this ready - please have a recent Anaconda Python installed (ideally Python 3.7)
