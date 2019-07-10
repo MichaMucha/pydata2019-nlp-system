@@ -75,7 +75,7 @@ Installation:
 - Bring your ideas for what you want to monitor on Reddit!
 - If you want to use your NLP model that you built, that's a wonderful idea!
 - Download a pretrained sentiment classification model using the script in `step3_nlp/download_fastai_sentiment_model.sh`
-- Pre-build docker images with `docker-compose build --parallel -f step6_orchestration/docker-compose.yml` - it will take a bit of time, but it's a one-time investment :)
+- Pre-build docker images with `cd step6_orchestration && docker-compose build --parallel` - it will take a bit of time, but it's a one-time investment :)
 
 --- 
 > **Thank you for taking the preparation steps. See you at the workshop!**  
