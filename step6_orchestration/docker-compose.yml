@@ -28,20 +28,20 @@ services:
     ports:
       - 6379:6379
 
-  # message_processor:
-  #   container_name: 
-  #   build: 
-  #   image: 
-  #   links:
-  #     - 
-  #   depends_on: 
-  #     - 
-  #   environment: 
-      
-  #   networks:
-  #     - 
-  #   entrypoint: 
-  #   command: -c "message_processor - serve_ner_sent"
+  message_processor:
+    container_name: message_processor
+    build: ./message_processor
+    image: message_processor:latest
+    links:
+      - redis_db
+    depends_on: 
+      - redis_db
+    environment: 
+      REDIS_URL: redis_db
+    networks:
+      - backend
+    entrypoint: /bin/bash
+    command: -c "message_processor - serve_ner_sent"
 
   telegram_publisher:
     build: ./telegram_publisher

@@ -7,7 +7,7 @@ from praw.exceptions import APIException, ClientException
 import redis
 import ujson
 
-### Fire!!
+import fire
 
 REDIS_HOST = getenv('REDIS_URL', 'localhost')
 
@@ -56,11 +56,10 @@ class StreamConsumer:
         self.__retries -= 1
         sleep(self.__delay_before_retry)
         self.redis()
-        
 
 
 def main():
-    ### Fire!!!
+    fire.Fire(StreamConsumer)
 
 if __name__ == "__main__":
     main()

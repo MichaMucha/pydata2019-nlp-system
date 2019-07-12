@@ -31,11 +31,11 @@ setup(
     version=VERSION,
     packages=find_packages(),
     # namespace_packages=namespace_packages,
-    # entry_points={
-    #     'console_scripts': [
-    #         f'{project_name} = {main_module}.__main__:main',
-    #     ]
-    # },
+    entry_points={
+        'console_scripts': [
+            f'{project_name} = {main_module}.__main__:main',
+        ]
+    },
     # package_data={
     #     f'{main_module}': ['version.txt']
     # }
